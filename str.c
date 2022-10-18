@@ -12,7 +12,7 @@
 
 int str(va_list list)
 {
-	int func_num = 0;
+	int func_num = 0, i;
 	char *str;
 
 	str = va_arg(list, char *);
@@ -21,6 +21,7 @@ int str(va_list list)
 
 	if (str[0] == '\0')
 		return (-1);
+	i = 0;
 
 	while (str[i] != '\0')
 	{
