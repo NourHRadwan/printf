@@ -13,6 +13,7 @@ int chr(va_list list)
 {
 	char c = va_arg(list, int);
 
-	return (write(1, &c, 1));
+	_putchar(c);
+	return (1);
 
 }
