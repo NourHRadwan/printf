@@ -22,7 +22,7 @@ int str(va_list list)
 	if (str[0] == '\0')
 		return (-1);
 
-	while (str[i])
+	while (str[i] != '\0')
 	{
 		func_num += _putchar(str[i]);
 		i++;
