@@ -22,8 +22,10 @@ int str(va_list list)
 	if (str[0] == '\0')
 		return (-1);
 
-	while (*str)
-		func_num += _putchar(*str++);
-
+	while (str[i])
+	{
+		func_num += _putchar(str[i]);
+		i++;
+	}
 	return (func_num);
 }
