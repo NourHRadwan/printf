@@ -1,31 +1,34 @@
 #ifndef MAIN_H
 #define MAIN_H
-#include <stdarg.h> /* va_list */ 
-#include <stdio.h> 
-#include <stdlib.h> /* malloc, free */ 
-#include <unistd.h>  /* write */ 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+
+
 /**
- * struct specifiers - struct    
- * @specifiers: identifier of type to print                                                      
- * @funptr: ptr to functions that print according to the type                                   
- */ 
-typedef struct specifiers   
+ * struct f_spec - Struct for format specifiers
+ * @specifier: flags to be passed
+ * @px: The function pointer
+ */
+struct f_spec
 {
-char specifiers;
-int* (*funptr)(va_list);
-} specifiers_t;
+	char specifier;
+	int (*px)(va_list);
+};
 
-/* prototypes functions */
+typedef struct f_spec format_spec;
+
+/* main functions */
 int _printf(const char *format, ...);
-int get_function(char s, va_list args);
+int get_function(char s, va_list list);
+int _putchar(char c);
 
-/*Conversion specifiers*/
-int print_str(va_list args);
-int print_char(va_list args);
-int print_mod(va_list args);
-int print_digit(va_list args);
+/* function handlers */
+int chr(va_list list);
+int str(va_list list);
+int digit(va_list list);
+int mod(va_list list);
+int rev(va_list list);
 
-/* helpful Functions*/ 
-int _putchar(char);
-int _strlen(char *s);
-#endif 
+#endif /* MAIN_H */
